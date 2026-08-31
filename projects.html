@@ -16,38 +16,80 @@
       <li>
         <a href="projects.html">Projects ▾</a>
         <ul class="dropdown-menu">
-          <li><a href="projects.html#stained-glass">Stained Glass Setup</a></li>
-          <li><a href="projects.html#cad-models">3D CAD & Extrusion</a></li>
-          <li><a href="projects.html#analog-circuits">Analog Circuit Design</a></li>
+          <li><a href="#stained-glass">Stained Glass Setup</a></li>
+          <li><a href="#cad-models">3D CAD & Extrusion</a></li>
+          <li><a href="#analog-circuits">Analog Circuit Design</a></li>
         </ul>
       </li>
     </ul>
   </nav>
 
-  <main class="container">
-    <h1>All Projects</h1>
-    <p>Scroll down or use the navigation dropdown to jump to a specific project.</p>
+  <!-- Wrapping everything in the new 2-column layout -->
+  <main class="container projects-layout">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <h3>Projects</h3>
+      <ul style="margin-top: 1rem;">
+        <li><a href="#stained-glass" class="nav-item">Stained Glass Setup</a></li>
+        <li><a href="#cad-models" class="nav-item">3D CAD & Extrusion</a></li>
+        <li><a href="#analog-circuits" class="nav-item">Analog Circuit Design</a></li>
+      </ul>
+    </aside>
 
-    <section id="stained-glass">
-      <h2>Stained Glass Setup</h2>
-      <p>[Project description and images will go here...]</p>
-    </section>
+    <!-- Main Project Content -->
+    <div class="projects-content">
+      <section id="stained-glass" class="project-section">
+        <h2>Stained Glass Setup</h2>
+        <p>Details about the wet glass grinder, splash guard, and 3M P100 respirator setup...</p>
+        <p style="height: 400px; background: #eee; margin-top: 20px; display:flex; align-items:center; justify-content:center;">[More Content/Images Here]</p>
+      </section>
 
-    <hr style="border: 0; border-top: 1px solid #eaeaea; margin: 3rem 0;">
+      <hr style="border: 0; border-top: 1px solid #eaeaea; margin: 3rem 0;">
 
-    <section id="cad-models">
-      <h2>3D CAD & Extrusion</h2>
-      <p>[Project description and images will go here...]</p>
-    </section>
+      <section id="cad-models" class="project-section">
+        <h2>3D CAD & Extrusion</h2>
+        <p>Details on converting Adobe Illustrator SVG text for extrusion in Autodesk Fusion...</p>
+        <p style="height: 400px; background: #eee; margin-top: 20px; display:flex; align-items:center; justify-content:center;">[More Content/Images Here]</p>
+      </section>
 
-    <hr style="border: 0; border-top: 1px solid #eaeaea; margin: 3rem 0;">
+      <hr style="border: 0; border-top: 1px solid #eaeaea; margin: 3rem 0;">
 
-    <section id="analog-circuits">
-      <h2>Analog Circuit Design</h2>
-      <p>[Project description and images will go here...]</p>
-    </section>
+      <section id="analog-circuits" class="project-section">
+        <h2>Analog Circuit Design</h2>
+        <p>Exploring voltage divider circuits, LM2596 voltage regulators, and op-amp buffers...</p>
+        <p style="height: 400px; background: #eee; margin-top: 20px; display:flex; align-items:center; justify-content:center;">[More Content/Images Here]</p>
+      </section>
+    </div>
 
   </main>
+
+  <!-- JavaScript to highlight the active sidebar link based on scroll position -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const sections = document.querySelectorAll('.project-section');
+      const navLinks = document.querySelectorAll('.sidebar .nav-item');
+
+      window.addEventListener('scroll', () => {
+        let current = '';
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          // Trigger the highlight when the section is 150px from the top of the screen
+          if (pageYOffset >= (sectionTop - 150)) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href').includes(current) && current !== '') {
+            link.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
