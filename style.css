@@ -143,6 +143,7 @@ h2 {
 .card {
   background: #fff;
   border: 1px solid #eaeaea;
+  border-radius: 8px; /* Added back to give project cards rounded corners */
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
