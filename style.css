@@ -128,9 +128,7 @@ h2 {
 
 .profile-pic {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 50%;
+  height: auto;
   border: 3px solid #eaeaea;
 }
 
@@ -145,7 +143,6 @@ h2 {
 .card {
   background: #fff;
   border: 1px solid #eaeaea;
-  border-radius: 8px;
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -158,7 +155,7 @@ h2 {
 .card img {
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
@@ -244,15 +241,13 @@ h2 {
 .img-row img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
+  object-fit: contain;
   border: 1px solid #eaeaea;
 }
 
 .full-width-img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
   border: 1px solid #eaeaea;
   margin-bottom: 0.5rem;
 }
@@ -273,5 +268,4 @@ figcaption {
   width: 100%;
   aspect-ratio: 16 / 9;
   border: none;
-  border-radius: 8px;
 }
