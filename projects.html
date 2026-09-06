@@ -190,11 +190,84 @@
 
       <section id="boat-motherboard" class="project-section">
         <h2>Motherboard for Autonomous Oceanic Drone</h2>
+
+        <div class="img-row">
+          <figure>
+            <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/drone-motherboard-assembled.png" alt="Drone Motherboard Assembled" style="width: 100%; height: 100%; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none; object-fit: contain;">
+            </div>
+            <figcaption>Sensor Module Chain 2</figcaption>
+          </figure>
+          <figure>
+            <div style="width: 100%; height: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/ocean-drones.png" alt="TAFLab Autonomous Ocean Drones" style="width: 100%; height: 100%; margin-top: 10%; margin-right: 0%; margin-bottom: 10%; margin-left: 0%; display: block; border: none; object-fit: contain;">
+            </div>
+            <figcaption>Sensor Modules</figcaption>
+          </figure>
+        </div>
+
+
         <p>For this project, I collaborated on the complete redesign of the motherboard for an autonomous oceanic drone designed to monitor temperature and other environmental factors over extended deployments. While a fellow researcher and I co-designed the schematic, I took sole ownership of the PCB layout.</p>
+        
+        <figure class="carousel-container">
+          <!-- Main Image Display -->
+          <div class="carousel-main">
+            <button class="carousel-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+            
+            <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <!-- The starting image is defined here -->
+              <img id="carousel-main-img" src="assets/drone-motherboard-schematic-1.png" style="width: 100%; height: auto; margin: 0%; display: block; border: none;">
+            </div>
+            
+            <button class="carousel-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
+          </div>
+
+          <!-- Thumbnails -->
+          <div class="carousel-thumbnails">
+            <img src="assets/drone-motherboard-schematic-1.png" class="thumb active-thumb" onclick="setSlide(0)">
+            <img src="assets/drone-motherboard-schematic-2.png" class="thumb" onclick="setSlide(1)">
+            <img src="assets/drone-motherboard-schematic-3.png" class="thumb" onclick="setSlide(2)">
+          </div>
+          
+          <figcaption>PCB Schematic</figcaption>
+        </figure>
+
         <p>I was responsible for integrating multiple current sensing modules into the board to measure power draw from both an external lithium-ion battery and a solar panel. I selected a multiplexer to resolve I2C address conflicts between identical components and route their signals to the MCU.</p>
+        
+        <figure>
+          <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+            <img src="assets/drone-motherboard-layout.png" alt="PCB Layout" style="width: 100%; height: 100%; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none; object-fit: contain;">
+          </div>
+          <figcaption>PCB Layout</figcaption>
+        </figure>
+        
         <p>I also selected appropriately sized inductors, feedback resistors, and input/output capacitors to use with the LM2596SX buck converter, regulating voltage down from 12 V to 8 V, 5 V, and 3.3 V. During layout, I minimized the size of switching loops, ensured low-impedance paths to stable power and ground rails, and kept the feedback path clear of any noisy nets. Utilizing large copper pours, power planes, and thick traces, I distributed this stable power throughout the PCB, accounting for potential spikes in current draw.</p>
         <p>Additionally, I integrated a microSD card receptacle for data acquisition and connected it to a real-time clock (RTC) module my partner designed. I also added circuitry to measure the voltage of a 40 V battery (before it is dropped to 12 V by an external regulator for the board’s main supply), using a large resistor divider and op-amp buffer to feed it into a 5 V input ADC.</p>
+        
+        <figure>
+          <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+            <img src="assets/drone-motherboard-powered.png" alt="PCB Powered" style="width: 100%; height: 100%; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none; object-fit: contain;">
+          </div>
+          <figcaption>PCB Powered During Testing</figcaption>
+        </figure>
+        
         <p>I strategically placed test points throughout the PCB for debugging, added indicator LEDs on each power rail, and placed pins to bypass the current sensors if necessary. I also added headers to enable source selection of the 5 V rail between the SMD buck converter and an off-the-shelf (OTS) adjustable regulator (that would regulate 12 V to ~5 V). The latter was included in case slight adjustments to the rail were needed to calibrate analog sensors using it as a reference.</p>
+        
+        <div class="img-row">
+          <figure>
+            <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/drone-motherboard-PCB-3D-view.png" alt="PCB 3D View" style="width: 100%; height: 100%; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none; object-fit: contain;">
+            </div>
+            <figcaption>Sensor Module Chain 2</figcaption>
+          </figure>
+          <figure>
+            <div style="width: 100%; height: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/drone-motherboard-PCB-3D-view-2.png" alt="PCB 3D View 2" style="width: 100%; height: 100%; margin-top: 10%; margin-right: 0%; margin-bottom: 10%; margin-left: 0%; display: block; border: none; object-fit: contain;">
+            </div>
+            <figcaption>Sensor Modules</figcaption>
+          </figure>
+        </div>
+        
         <p>I made significant improvements in layout from the previous iterations of this board. The previous version used by this research lab included just two signal layers, no power planes, and distributed power through large auto-routed trace networks. It also included OTS modules for voltage regulation and data acquisition, which were unreliable, had to be purchased separately, and required manual tuning. In my revision, prior to implementing additional functionality and converting OTS modules into SMD components, I redid the stackup to include four layers instead of two for better power stability. I also minimized trace length and overlaps wherever possible to preserve signal integrity, and decreased the via count from 84 to 36.</p>
       </section>
 
@@ -265,6 +338,47 @@
         });
       });
     });
+
+    // Add this right before the closing </script> tag
+    const carouselImages = [
+      "assets/drone-motherboard-schematic-1.png", // 0 (Starting Image)
+      "assets/drone-motherboard-schematic-2.png", // 1
+      "assets/drone-motherboard-schematic-3.png"  // 2
+    ];
+
+    let currentSlide = 0;
+
+    function updateCarousel() {
+      const mainImg = document.getElementById("carousel-main-img");
+      const thumbs = document.querySelectorAll(".thumb");
+
+      mainImg.src = carouselImages[currentSlide];
+
+      thumbs.forEach((thumb, index) => {
+        if (index === currentSlide) {
+          thumb.classList.add("active-thumb");
+        } else {
+          thumb.classList.remove("active-thumb");
+        }
+      });
+    }
+
+    function changeSlide(direction) {
+      currentSlide += direction;
+      
+      if (currentSlide < 0) {
+        currentSlide = carouselImages.length - 1; // Loop to end
+      } else if (currentSlide >= carouselImages.length) {
+        currentSlide = 0; // Loop to start
+      }
+      
+      updateCarousel();
+    }
+
+    function setSlide(index) {
+      currentSlide = index;
+      updateCarousel();
+    }
   </script>
 
 </body>
