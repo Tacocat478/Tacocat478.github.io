@@ -145,6 +145,13 @@ h2 {
   margin-top: 2rem;
 }
 
+/* Removes default link styling and ensures the anchor behaves nicely in the grid */
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 .card {
   background: #fff;
   border: 1px solid #eaeaea;
