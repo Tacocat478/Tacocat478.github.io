@@ -196,13 +196,13 @@
             <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
               <img src="assets/drone-motherboard-assembled.png" alt="Drone Motherboard Assembled" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
             </div>
-            <figcaption>Sensor Module Chain 2</figcaption>
+            <figcaption>Drone Motherboard Assembled</figcaption>
           </figure>
           <figure>
             <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
               <img src="assets/ocean-drones.png" alt="TAFLab Autonomous Ocean Drones" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
             </div>
-            <figcaption>Sensor Modules</figcaption>
+            <figcaption>TAFLab Autonomous Ocean Drones</figcaption>
           </figure>
         </div>
 
@@ -258,13 +258,13 @@
             <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
               <img src="assets/drone-motherboard-PCB-3D-view.png" alt="PCB 3D View" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
             </div>
-            <figcaption>Sensor Module Chain 2</figcaption>
+            <figcaption>PCB 3D View</figcaption>
           </figure>
           <figure>
             <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
               <img src="assets/drone-motherboard-PCB-3D-view-2.png" alt="PCB 3D View 2" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
             </div>
-            <figcaption>Sensor Modules</figcaption>
+            <figcaption>PCB 3D View 2</figcaption>
           </figure>
         </div>
         
@@ -275,9 +275,58 @@
 
       <section id="op-amp" class="project-section">
         <h2>Two Stage Display Driver Op Amp</h2>
+
+        <div class="img-row">
+          <figure>
+            <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/example-LCD-driver.png" alt="Example LCD Driver" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+            </div>
+            <figcaption>Example LCD Driver, For Which the Amplifier is Designed</figcaption>
+          </figure>
+          <figure>
+            <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <video src="assets/LCD-driver-amplifier.png" controls style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none; background-color: #000;"></video>
+            </div>
+            <figcaption>Provided Feedback Circuitry and Pixel Load Model That the Amplifier is Speced For.</figcaption>
+          </figure>
+        </div>
+
         <p>For this class project, I designed a custom operational amplifier capable of driving a 272 × 340 pixel display at 60 Hz. The amplifier needed to drive every pixel sequentially with ≤ 0.2% error, deliver a high output swing of 1.4 V, and be built at the transistor level with only a single current reference.</p>
+        
+        <figure>
+          <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+            <img src="assets/op-amp-circuit.svg" alt="Full Circuit" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+          </div>
+          <figcaption>Full Circuit</figcaption>
+        </figure>
+
         <p>Leveraging a two-stage architecture, I designed a telescopic differential input first stage to achieve high open-loop gain. Next, I implemented a Class AB common-source second stage to enable high output swing while minimizing power consumption. I utilized current mirrors to scale the current reference and distribute it to all branches.</p>
+        
+        <div class="img-row">
+          <figure>
+            <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/ideal-two-stage.png" alt="Ideal Two Stage Amplifier" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+            </div>
+            <figcaption>Ideal Two Stage Amplifier Used for Initial Calculations</figcaption>
+          </figure>
+
+          <figure>
+            <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/Rout_fT_fu_Plot.png" alt="Rout and ft Over fu Plot" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+            </div>
+            <figcaption>Lookup Table Sweep to Find Maximum Feasible Transistor Length</figcaption>
+          </figure>
+        </div>
+        
         <p>I began the design process with an idealized two-stage amplifier model and approximated the transconductance and output resistance each stage would require to achieve the desired specifications. I then wrote Python scripts to sweep data from lookup tables characterizing the selected transistors and calculated appropriate transistor sizing and DC bias points using the gm/Id methodology.</p>
+        
+        <figure>
+          <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+            <img src="assets/op-amp-circuit(1).png" alt="Full Circuit in Cadence" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+          </div>
+          <figcaption>Circuit Modeled in Cadence Virtuoso</figcaption>
+        </figure>
+        
         <p>After generating these initial values, I built and simulated the full circuit in Cadence Virtuoso. I iteratively tuned the circuit parameters, accounting for parasitics and higher-order effects that were not captured in the initial model. I then validated that the final design met all specifications and documented the results.</p>
       </section>
 
@@ -285,6 +334,8 @@
 
       <section id="lithography" class="project-section">
         <h2>Lithography on Oxides and Thin Films</h2>
+        
+        
         <p>As a process engineering intern at the Marvell Nanofabrication Laboratory, UC Berkeley’s on-campus semiconductor manufacturing facility, I investigated how varying the material properties of the target surface affects optimal photolithography parameters. I then published these findings to guide process development for researchers and industry professionals using the facility’s tools.</p>
         <p>Beginning with a literature review, I read currently available resources on lithography, dose-to-clear, reflection coefficients, and the absorption of materials that are commonly patterned in wafer-scale fabrication.</p>
         <p>To test my theoretical predictions, I then grew SiO2 on cleaned bare silicon wafers using wet oxidation at 1000 °C. I did so at a variety of growth thicknesses: 1 kÅ, 3 kÅ, and 10 kÅ. I spin coated 1 μm of MiR701 i-line photoresist and used a maskless aligner exposure tool (Heidelberg MLA 150) to expose a test pattern across a range of doses (intensity in mJ) and defocus levels. Following development, I inspected the wafers under an optical microscope to identify the dose and defocus settings at which the best resolution was achieved.</p>
