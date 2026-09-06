@@ -48,14 +48,109 @@
     <div class="projects-content">
       
       <section id="magnetic-sensing" class="project-section">
-        <h2>Magnetic Fuel Level Sensing</h2>
+        <h2>Magnetic Fill Level Sensing</h2>
+        
+        <!-- Before 1st Paragraph -->
+        <div class="img-row">
+          <figure>
+            <img src="assets/sensor-module-chain-2.png" alt="Sensor module chain 2">
+            <figcaption>Sensor Module Chain 2</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/sensor-modules.png" alt="Sensor modules">
+            <figcaption>Sensor Modules</figcaption>
+          </figure>
+        </div>
+
         <p>As a member of Space Enterprise at Berkeley, UC Berkeley’s liquid rocketry team, I designed a modular sensor array that contactlessly measures the amount of propellant in the engine test stand's fuel tank. The current version consists of several Hall effect sensor modules and a main controller board.</p>
+        
+        <!-- Above 2nd Paragraph -->
+        <div class="img-row">
+          <figure>
+            <img src="assets/tank-diagram.png" alt="Tank diagram">
+            <figcaption>Tank Diagram. Photo credit: Bhuvan Belur</figcaption>
+          </figure>
+          <figure>
+            <iframe src="https://drive.google.com/file/d/125IJUD4Pdfe2SdLA9CQlT4wET9HHHvkC/preview" class="responsive-video" allow="autoplay"></iframe>
+            <figcaption>Video Demonstration</figcaption>
+          </figure>
+        </div>
+
         <p>The system measures fuel level by tracking a magnetic piston inside the tank that falls as the propellant is consumed. The Hall effect sensors output a lower voltage when the magnet nears them, allowing the piston’s position to be precisely calculated. Prior to integration into the tank, it demonstrated ±0.25 cm positional accuracy and can reliably track a magnet moving linearly alongside the sensor array. The array’s length is adjustable and has been validated to function at up to 100 cm. After integration, it has also operated successfully during live engine tests.</p>
+        
+        <!-- Above 3rd Paragraph -->
+        <figure>
+          <img src="assets/sensor-module-3D-view.png" alt="Sensor module 3D view" class="full-width-img">
+          <figcaption>Sensor Module 3D View</figcaption>
+        </figure>
+        
+        <figure>
+          <img src="assets/sensor-module-layout-2.png" alt="Sensor module layout 2" class="full-width-img">
+          <figcaption>Sensor Module Layout 2</figcaption>
+        </figure>
+
+        <div class="img-row">
+          <figure>
+            <img src="assets/sensor-module-schematic.png" alt="Sensor module schematic">
+            <figcaption>Sensor Module Schematic</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/sensor-module-chain.png" alt="Sensor module chain">
+            <figcaption>Sensor Module Chain</figcaption>
+          </figure>
+        </div>
+
         <p>I designed each sensor module to be a self-contained PCB consisting of eight DRV5055 Hall effect sensors and one ADS8668 daisy-chainable ADC. The identical sensor modules can connect to one another, allowing the array to scale to the required length. The daisy-chainable ADCs allow data to be transferred serially up the chain and to the controller. They communicate using the SPI protocol.</p>
+        
         <p>Having an ADC on each individual module simplifies circuitry, as fewer lines need to cross the entire length of the chain. It also improves signal integrity by converting analog readings to digital values before passing them up the chain, minimizing data errors from voltage drops along the trace.</p>
+        
+        <!-- Above 5th Paragraph -->
+        <div class="img-row">
+          <figure>
+            <img src="assets/sensor-modules-outside-tube.png" alt="Sensor modules outside tube">
+            <figcaption>Sensor Modules Outside Tube</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/sensor-modules-in-tube.png" alt="Sensor modules in tube">
+            <figcaption>Sensor Modules In Tube</figcaption>
+          </figure>
+        </div>
+
         <p>Additionally, I designed the sensor modules to fit within a strict 11mm width constraint, allowing them to slide into an aluminum tube mounted directly outside the tank. This was the only feasible mounting option due the tank’s existing design.</p>
+        
+        <!-- Above 6th Paragraph -->
+        <figure>
+          <div class="img-row" style="margin-bottom: 0;">
+            <img src="assets/controller-PCB-3D-view.png" alt="Controller PCB 3D view">
+            <img src="assets/controller-PCB-layout.png" alt="Controller PCB layout">
+          </div>
+          <figcaption>Controller PCB</figcaption>
+        </figure>
+
+        <figure>
+          <div class="img-row" style="margin-bottom: 0;">
+            <img src="assets/controller-protoboard-front.png" alt="Controller protoboard front">
+            <img src="assets/controller-protoboard-back.png" alt="Controller protoboard back">
+          </div>
+          <figcaption>Controller Protoboard</figcaption>
+        </figure>
+
         <p>The controller is a separate board featuring an ESP32 microcontroller, Power over Ethernet (PoE) circuitry, and logic level shifters (the MCU works at 3.3V while the ADCs are at 5V). It distributes power from PoE to the sensor modules, sends configuration data, and manages data transfer. I initially designed a PCB to achieve this but it requires further iteration before deployment. A protoboard is currently being used to verify the system’s functionality.</p>
+        
+        <!-- Above 7th Paragraph -->
+        <div class="img-row">
+          <figure>
+            <img src="assets/drv5055-datasheet-figures.png" alt="DRV5055 Datasheet Figures">
+            <figcaption>DRV5055 Datasheet Figures</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/drv5055-experimental-data.png" alt="DRV5055 Experimental Data">
+            <figcaption>DRV5055 Experimental Data</figcaption>
+          </figure>
+        </div>
+
         <p>I experimentally characterized the sensors’ response to magnetic flux and used Taylor series approximation to define a function mapping each sensor’s output voltage to the magnet’s distance from it. I used this as the foundation of an algorithm that receives all sensor readings, identifies which sensor is closest to the magnet, and calculates the magnet’s distance from that particular sensor.</p>
+        
         <p>I also implemented code to calibrate the sensors and zero out any constant magnetic flux from the environment, as well as inherent manufacturing offsets between individual sensors.</p>
       </section>
 
