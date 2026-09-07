@@ -123,15 +123,7 @@ h2 {
   padding-top: 2rem; 
 }
 
-/* Turns project headers into solid gray divider bars */
-.project-section h2 {
-  background-color: #eaeaea; /* Your signature subtle gray */
-  padding: 1rem 1.5rem;      /* Adds breathing room around the text */
-  border-radius: 6px;        /* Softens the corners */
-  margin-top: 1rem;          /* Space above the bar */
-  margin-bottom: 2rem;       /* Space below the bar */
-  color: #333;               /* Text color */
-}
+
 
 /* --- HOME PAGE: 2-COLUMN ABOUT SECTION --- */
 .about-grid {
