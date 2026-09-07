@@ -62,7 +62,7 @@
             <div style="width: 80%; overflow: hidden; border: 1px solid #eaeaea;">
               <img src="assets/sensor-modules.png" alt="Sensor modules" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
             </div>
-            <figcaption>Sensor Modules</figcaption>
+            <figcaption>Assembled Sensor Modules</figcaption>
           </figure>
         </div>
 
@@ -74,7 +74,7 @@
             <div style="width: 70%; overflow: hidden; border: 1px solid #eaeaea;">
               <img src="assets/tank-diagram.png" alt="Tank diagram" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
             </div>
-            <figcaption>Tank Diagram. Photo credit: Bhuvan Belur</figcaption>
+            <figcaption>Tank Diagram. Image credit: Bhuvan Belur</figcaption>
           </figure>
           <figure>
             <div style="width: 130%; overflow: hidden; border: 1px solid #eaeaea;">
@@ -98,7 +98,7 @@
           <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea; margin-bottom: 0.5rem;">
             <img src="assets/sensor-module-layout-2.png" alt="Sensor module layout 2" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
           </div>
-          <figcaption>Sensor Module Layout 2</figcaption>
+          <figcaption>Sensor Module Layout</figcaption>
         </figure>
 
         <div class="img-row">
@@ -153,10 +153,10 @@
 
         <figure>
           <div class="img-row" style="margin-bottom: 0;">
-            <div style="flex: 1; min-width: 0; overflow: hidden; border: 1px solid #eaeaea;">
+            <div style="width: 90%; overflow: hidden; border: 1px solid #eaeaea;">
               <img src="assets/controller-protoboard-front.png" alt="Controller protoboard front" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
             </div>
-            <div style="flex: 1; min-width: 0; overflow: hidden; border: 1px solid #eaeaea;">
+            <div style="width: 85%; min-width: 0; overflow: hidden; border: 1px solid #eaeaea;">
               <img src="assets/controller-protoboard-back.png" alt="Controller protoboard back" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
             </div>
           </div>
@@ -183,7 +183,10 @@
 
         <p>I experimentally characterized the sensors’ response to magnetic flux and used Taylor series approximation to define a function mapping each sensor’s output voltage to the magnet’s distance from it. I used this as the foundation of an algorithm that receives all sensor readings, identifies which sensor is closest to the magnet, and calculates the magnet’s distance from that particular sensor.</p>
         
+        <strong style="font-size: 1.5em;">Read my <a href="https://www.digikey.com/en/maker/projects/using-hall-effect-sensors-to-track-magnet-position/5d3dd89b84dd4c85bd33e2dc7448133a" target="_blank">Digikey Article</a>, which goes into detail on my initial design process, sensor characterization procedure, and firmware algorithm.</strong>
+
         <p>I also implemented code to calibrate the sensors and zero out any constant magnetic flux from the environment, as well as inherent manufacturing offsets between individual sensors.</p>
+
       </section>
 
       <hr style="border: 0; border-top: 1px solid #eaeaea; margin: 3rem 0;">
@@ -196,7 +199,7 @@
             <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
               <img src="assets/drone-motherboard-assembled.png" alt="Drone Motherboard Assembled" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
             </div>
-            <figcaption>Drone Motherboard Assembled</figcaption>
+            <figcaption>Drone Motherboard</figcaption>
           </figure>
           <figure>
             <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
@@ -232,6 +235,8 @@
           <figcaption>PCB Schematic</figcaption>
         </figure>
 
+        <p>This work was done during my time in the <a href="https://taflab.berkeley.edu/" target="_blank"><strong>Theoretical and Applied Fluid Dynamics Laboratory (TAFLab)</strong></a> at UC Berkeley.</p>
+        
         <p>I was responsible for integrating multiple current sensing modules into the board to measure power draw from both an external lithium-ion battery and a solar panel. I selected a multiplexer to resolve I2C address conflicts between identical components and route their signals to the MCU.</p>
         
         <figure>
@@ -245,7 +250,7 @@
         <p>Additionally, I integrated a microSD card receptacle for data acquisition and connected it to a real-time clock (RTC) module my partner designed. I also added circuitry to measure the voltage of a 40 V battery (before it is dropped to 12 V by an external regulator for the board’s main supply), using a large resistor divider and op-amp buffer to feed it into a 5 V input ADC.</p>
         
         <figure>
-          <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+          <div style="width: 70%; overflow: hidden; border: 1px solid #eaeaea;">
             <img src="assets/drone-motherboard-powered.png" alt="PCB Powered" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
           </div>
           <figcaption>PCB Powered During Testing</figcaption>
@@ -300,6 +305,8 @@
           <figcaption>Full Circuit</figcaption>
         </figure>
 
+        <strong style="font-size: 1.1em;">Read my <a href="assets/EE_140_Design_Project_Sasan_Liaw.pdf" target="_blank">full report</a> which explains my design process, choices, and peformance results in detail.</strong>
+        
         <p>Leveraging a two-stage architecture, I designed a telescopic differential input first stage to achieve high open-loop gain. Next, I implemented a Class AB common-source second stage to enable high output swing while minimizing power consumption. I utilized current mirrors to scale the current reference and distribute it to all branches.</p>
         
         <div class="img-row">
@@ -328,6 +335,50 @@
         </figure>
         
         <p>After generating these initial values, I built and simulated the full circuit in Cadence Virtuoso. I iteratively tuned the circuit parameters, accounting for parasitics and higher-order effects that were not captured in the initial model. I then validated that the final design met all specifications and documented the results.</p>
+     
+        <div class="img-row">
+          <figure>
+            <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/CMRR-PSRR-Combined.png" alt="CMRR and PSRR Results" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+            </div>
+          </figure>
+
+          <figure>
+            <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/loop-gain-freq-response.png" alt="Loop Gain Magnitude and Phase Results" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+            </div>
+          </figure>
+        </div>
+
+        <div class="img-row">
+          <figure>
+            <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/err-high-07V.png" alt="Rising Error Results" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+            </div>
+            <figcaption>Ideal Two Stage Amplifier Used for Initial Calculations</figcaption>
+          </figure>
+
+          <figure>
+            <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/err-low-07V.png" alt="Falling Error Results" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+            </div>
+            <figcaption>Lookup Table Sweep to Find Maximum Feasible Transistor Length</figcaption>
+          </figure>
+        </div>
+
+
+        <figure>
+          <div class="img-row" style="margin-bottom: 0;">
+            <div style="width: 90%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/err-high-07V.png" alt="Rising Error Results" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+            </div>
+            <div style="width: 85%; min-width: 0; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/err-low-07V.png" alt="Falling Error Results" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+            </div>
+          </div>
+          <figcaption>Settling Error When the Amplifier Sees a 350 mV Square Wave Input. This Is Defined as (Targert Output - Actual Output) / Input Step Size.</figcaption>
+        </figure>
+     
       </section>
 
       <hr style="border: 0; border-top: 1px solid #eaeaea; margin: 3rem 0;">
@@ -340,7 +391,7 @@
             <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
               <img src="assets/wafer-under-scope-3.png" alt="Pattern Under Scope" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
             </div>
-            <figcaption>Viewport Into the Sputter Chamber During Aluminum Deposition</figcaption>
+            <figcaption>Inspecting an Exposed Sample Under a Microscope</figcaption>
           </figure>
 
           <figure>
@@ -367,7 +418,7 @@
             <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
               <img src="assets/wafer-on-boat.png" alt="Wafers On Furnace Boat" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
             </div>
-            <figcaption>Wafers Being Removed From a Furnace</figcaption>
+            <figcaption>Wafers Being Removed From the Furnace</figcaption>
           </figure>
         </div>
         
@@ -470,7 +521,7 @@
        
         <figure>
             <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
-              <img src="assets/alm-clk-schematic.png" alt="PCB Schematic" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+              <img src="assets/alm-clk-schematic.jpg" alt="PCB Schematic" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
             </div>
             <figcaption>PCB Schematic</figcaption>
         </figure>
@@ -479,7 +530,7 @@
         
         <figure>
             <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
-              <img src="assets/alm-clock-board.png" alt="Assembled PCB" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+              <img src="assets/alm-clock-board.jpg" alt="Assembled PCB" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
             </div>
             <figcaption>Assembled PCB</figcaption>
         </figure>
@@ -488,7 +539,7 @@
         
         <figure>
             <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
-              <img src="assets/alm-clk.png" alt="Powered Crcuit with Servo Attached" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+              <img src="assets/alm-clk.jpg" alt="Powered Crcuit with Servo Attached" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
             </div>
             <figcaption>Powered Circuit with Servo Attached</figcaption>
         </figure>
