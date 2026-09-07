@@ -376,3 +376,46 @@ figcaption {
   opacity: 1;
   border: 2px solid #074598; /* Highlights the currently viewed thumbnail */
 }
+
+/* --- HORIZONTAL CARDS ("More From Me") --- */
+.horizontal-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.horizontal-card {
+  display: flex;
+  flex-direction: row; /* Forces side-by-side layout */
+  align-items: center;
+  justify-content: space-between;
+}
+
+.horizontal-content {
+  flex: 1; /* Allows the text side to take up remaining space */
+  padding: 2rem 3rem;
+}
+
+.horizontal-card img {
+  width: 350px; /* Fixed width for the images on the right */
+  height: 250px;
+  object-fit: cover;
+  border-radius: 0 8px 8px 0; /* Rounds only the right side corners to match the card */
+  border-left: 1px solid #eaeaea; /* Separates image from text */
+}
+
+/* Make it stack properly on mobile phones */
+@media (max-width: 768px) {
+  .horizontal-card {
+    flex-direction: column-reverse; /* Puts text below the image on small screens */
+  }
+  .horizontal-card img {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    border-left: none;
+    border-bottom: 1px solid #eaeaea;
+  }
+  .horizontal-content {
+    padding: 1.5rem;
+  }
+}
