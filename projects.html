@@ -397,9 +397,51 @@
 
       <section id="guitar-circuit" class="project-section">
         <h2>Treble Boost Circuit</h2>
+
+        <figure>
+          <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+            <img src="assets/treble-boost-spice-circuit-[redacted].png" alt="Circuit in LTspice" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+          </div>
+          <figcaption>Circuit Modeled in LTspice For Simulation</figcaption>
+        </figure>
+    
         <p>For this class project, I collaborated with a partner to design, construct, and test a bandpass circuit that receives input from an electric guitar and amplifies frequencies pleasant to the human ear, 300 Hz to 15 kHz, before outputting the signal to a speaker. We designed the filter to have a gain ≥ 10 within the desired band and minimal gain outside of it.</p>
         <p>Given a circuit topology, we determined the symbolic frequency response of the circuit, identifying its gain, poles, and zeros in terms of unknown resistor and capacitor values. I derived the transfer function, factoring it into a gain term, a high-pass filter, and a pole-zero pair to easily identify the relationships between passive component values needed to achieve gain and cutoff frequency specifications.</p>
+        
+        <div class="img-row">
+          <figure>
+            <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/treble-boost-spice-freq-response.png" alt="Freq Response LTspice" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+            </div>
+            <figcaption>Frequency Response in LTspice</figcaption>
+          </figure>
+
+          <figure>
+            <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/treble-boost-spice-ac-response.png" alt="AC Response LTspicer" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+            </div>
+            <figcaption>AC Response in LTspice</figcaption>
+          </figure>
+        </div>
+        
         <p>I then worked with my partner to determine these values and simulate the circuit in LTspice to verify it met specifications. We analyzed both its frequency response from 10 Hz to 1 MHz and transient response at a frequency within the passband (500 Hz).</p>
+        
+        <div class="img-row">
+          <figure>
+            <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/treble-boost-wavefroms-freq-response.png" alt="Physical Circuit Freq Response" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+            </div>
+            <figcaption>Frequency Response of the Physical Circuit</figcaption>
+          </figure>
+
+          <figure>
+            <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/treble-boost-wavefroms-ac-response-1kHz.png" alt="Physical Circuit AC Response" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+            </div>
+            <figcaption>AC Response of the Physical Circuit</figcaption>
+          </figure>
+        </div>
+        
         <p>Finally, after proving the performance of the circuit in simulation, we built it physically using the LMC648 operational amplifier. Performing a frequency sweep, we validated that the circuit amplified frequencies within the specified band and not frequencies above or below it, achieving a midband gain of 21.58 dB, a lower -3 dB cutoff frequency of 197 Hz, and an upper -3 dB cutoff frequency of 21.8 kHz.</p>
       </section>
 
