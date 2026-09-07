@@ -449,9 +449,50 @@
 
       <section id="alarm-clock" class="project-section">
         <h2>Photosensitive Alarm Clock</h2>
+
+        <div class="img-row">
+          <figure>
+            <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/alm-clk-3D-view.png" alt="PCB 3D View" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+            </div>
+            <figcaption>PCB 3D View</figcaption>
+          </figure>
+
+          <figure>
+            <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/alm-clk-layout-front.png" alt="PCB Layout" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+            </div>
+            <figcaption>PCB Layout</figcaption>
+          </figure>
+        </div>
+
         <p>In this project, I collaborated with three teammates to engineer a custom alarm clock that automatically opens window blinds at dawn. The design included a photoresistor to detect changes in light intensity, a motor driver connected to a servo, an ESP32-S3 microcontroller, a screen, and a speaker with a corresponding amplifier.</p>
+       
+        <figure>
+            <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/alm-clk-schematic.png" alt="PCB Schematic" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+            </div>
+            <figcaption>PCB Schematic</figcaption>
+        </figure>
+       
         <p>Together, we selected appropriate components while keeping the bill of materials (BOM) under $50, designed the PCB, and tested it. We completed schematic capture and layout in KiCad.</p>
+        
+        <figure>
+            <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/alm-clock-board.png" alt="Assembled PCB" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+            </div>
+            <figcaption>Assembled PCB</figcaption>
+        </figure>
+
         <p>During assembly, the micro USB receptacle needed to flash code to the microcontroller (MCU) was ripped off the board along with some pads. We bypassed the damaged footprint by directly soldering the microcontroller pads to an MCU breakout board with its own USB receptacle, restoring the ability to upload code. While this pushed development back and we were unable to finalize functionality in the screen and speaker, we successfully implemented the photoresistor and servo by the project deadline.</p>
+        
+        <figure>
+            <div style="width: 100%; overflow: hidden; border: 1px solid #eaeaea;">
+              <img src="assets/alm-clk.png" alt="Powered Crcuit with Servo Attached" style="width: 100%; height: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; display: block; border: none;">
+            </div>
+            <figcaption>Powered Circuit with Servo Attached</figcaption>
+        </figure>
+
         <p>I wrote control logic using the Arduino framework to actuate the servo upon sensing changes in light intensity. We successfully demonstrated this functionality during the final review of the board. The photoresistor’s resistance would vary in response to light and, by using this as one half of a voltage divider, we read a change in voltage and passed it into the MCU’s built-in ADC.</p>
       </section>
 
