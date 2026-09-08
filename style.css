@@ -433,12 +433,12 @@ figcaption {
 
 .social-icon {
   display: inline-block;
-  color: #333;
+  color: #eaeaea;
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .social-icon:hover {
-  color: #000; 
+  color: #cccccc; 
   transform: translateY(-3px); 
 }
 
