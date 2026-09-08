@@ -490,3 +490,9 @@ figcaption {
   background-color: #052c65;
   border-color: #052c65;
 }
+
+/* --- STATIC NO-HOVER CARDS --- */
+.static-card:hover {
+  transform: none !important;
+  box-shadow: inherit !important; /* Prevents the shadow from enlarging on hover */
+}
